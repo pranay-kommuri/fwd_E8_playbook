@@ -30,6 +30,8 @@ body {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     margin-top: 170px;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 
