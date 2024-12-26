@@ -1,0 +1,380 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Lexend", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+@keyframes bg {
+    from {
+        background-position-x: 0px;
+    }
+
+    to {
+        background-position-x: 200px;
+    }
+}
+
+body {
+    background: url('../assets/texture3.jpg') #f8f8f8fe;
+    background-size: 200px;
+    background-blend-mode: overlay;
+    animation-name: bg;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    margin-top: 170px;
+}
+
+
+header {
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 120px;
+    display: grid;
+    grid-template-columns: 88% 7% 5%;
+    padding: 30px 5% 10px 5%;
+    justify-content: space-between;
+    position: fixed;
+    background-color: #FFFFFF;
+}
+
+header .logo {
+    z-index: 1001;
+    height: 80px;
+}
+
+header .login {
+    font-size: 20px;
+    margin-top: 30px;
+    color: black;
+}
+
+nav {
+    z-index: 1000;
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    top: 120px;
+    left: 0;
+    padding: 10px 5%;
+    border-bottom: 2px solid #00000020;
+    box-shadow: 0px 10px 10px #00000010;
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 14px;
+    justify-self: center;
+}
+
+nav ul li {
+    padding: 0 20px;
+}
+
+nav ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    border-bottom: 3px solid red;
+}
+
+nav a {
+    text-decoration: none;
+    color: red;
+    text-transform: uppercase;
+}
+
+.main {
+    width: 100%;
+    height: 60vh;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+section {
+    z-index: 800;
+    height: 100vh;
+    width: 100%;
+    padding: 0 5%;
+    background-color: #FFFFFF;
+    box-shadow: 0px -10px 10px #00000010;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #636363;
+}
+
+section h1 {
+    align-self: center;
+    font-size: 50px;
+    line-height: 200px;
+}
+
+section p {
+    align-self: center;
+    font-size: 24px;
+    line-height: 30px;
+    margin-top: -20px;
+    font-weight: 400;
+}
+
+section ul {
+    display: flex;
+    list-style-type: none;
+}
+
+section ul li {
+    background: url('../assets/rangoli.png') #ffffffd0;
+    background-blend-mode: lighten;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    width: 100%;
+    height: 40vh;
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+}
+
+section ul li a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 40px;
+    font-size: 20px;
+}
+
+section ul li a img {
+    width: 150px;
+    margin-top: 22px;
+    filter: grayscale(100%);
+    transition: 0.3s;
+    border: 7px solid black;
+    box-shadow: 0 0 10px #808080;
+    border-radius: 20px;
+}
+
+section ul li img:hover {
+    filter: grayscale(0%);
+}
+
+#s2 {
+    box-shadow: none;
+    background: url('../assets/texture2.jpg');
+    background-size: contain;
+    border-top: 2px solid #808080;
+    height: 70vh;
+    padding: 0 10%;
+    border-bottom: 2px solid #636363;
+}
+
+#s2 h1 {
+    line-height: 50px;
+    justify-self: left;
+    text-align: left;
+    width: 100%;
+    padding-top: 150px;
+    padding-bottom: 20px;
+}
+
+#s2 .rt {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    text-align: justify;
+}
+
+#s2 .rt p {
+    font-size: 28px;
+    line-height: 34px;
+    padding-right: 20px;
+}
+
+#s2 .rt img {
+    width: 250px;
+    border: 7px solid black;
+    box-shadow: 0 0 10px #808080;
+    justify-self: right;
+    margin-top: -60px;
+}
+
+#s3 {
+    border-top: 2px solid #808080;
+    height: 80vh;
+    padding-top: 50px;
+    box-shadow: 0px 10px 10px #00000010;
+    border-bottom: none;
+}
+
+#s3 .content3 {
+    display: grid;
+    grid-template-columns: 31% 23% 23% 23%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#s3 img {
+    width: 150px;
+    margin-top: 22px;
+    filter: grayscale(100%);
+    transition: 0.3s;
+    border: 7px solid black;
+    box-shadow: 0 0 10px #808080;
+    border-radius: 20px;
+}
+
+#s3 .content3 div {
+    background: url('../assets/rangoli.png') #ffffffd0;
+    background-blend-mode: lighten;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    width: 80%;
+    height: 40vh;
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+    margin-right: 100px;
+}
+
+#s3 a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 40px;
+    font-size: 20px;
+}
+
+#s3 p {
+    margin-left: 90px;
+    font-size: 36px;
+}
+
+.end {
+    height: 40vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.end img {
+    height: 200px;
+}
+
+.end h1 {
+    justify-self: right;
+    line-height: 100px;
+}
+
+.end p {
+    padding-left: 100px;
+    text-align: justify;
+    font-size: 20px;
+}
+
+footer {
+    height: 10vh;
+    background-color: white;
+    box-shadow: 0px -10px 10px #00000010;
+    align-items: center;
+    display: flex;
+}
+
+footer p {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.main2 {
+    padding: 50px 5%;
+}
+
+.main2 .top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 50px;
+}
+
+#search {
+    border-radius: 10px;
+    border: 3px solid black;
+    width: 30%;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.main2 ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.main2 ul li {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    width: 100%;
+    height: 40vh;
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.main2 ul li a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: white;
+    text-shadow: 0 0 5px #808080;
+}
+
+.main2 ul li a img {
+    height: 250px;
+    width: 200px;
+    margin-top: 22px;
+    position: absolute;
+    filter: grayscale(100%) contrast(70%);
+    transition: 0.3s;
+    border: 7px solid black;
+    box-shadow: 0 0 10px #808080;
+    border-radius: 20px;
+}
+
+.main2 ul li a p {
+    position: absolute;
+    width: 200px;
+    z-index: 200;
+    padding: 20px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.main2 ul li a img:hover {
+    filter: grayscale(0%) contrast(50%);
+}
