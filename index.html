@@ -6,14 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>playbook</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <script src="./js/app.js"></script>
     <script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 
 <body>
+    
+    <div class="wrapper">
+        <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+
+        <div class="form-box login">
+            <h2>Sign in</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Remember me</label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn">Sign in</button>
+                <div class="login-register"><p>Don't have an account? <a href="#" class="register-link">Sign up</a></p></div>
+            </form>
+        </div>
+
+        <div class="form-box register">
+            <h2>Sign up</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">I agree to the terms and conditions</label>
+                </div>
+                <button type="submit" class="btn">Sign up</button>
+                <div class="login-register"><p>Already have an account? <a href="#" class="login-link">Sign in</a></p></div>
+            </form>
+        </div>
+    </div>
+
     <header>
         <img src="./assets/logowithtext.png" alt="logowithtext" class="logo">
-        <a href="#" class="login">Log in</a>
+        <button class="btnLogin-popup">Sign in</button>
         <a href="#" class="login">Settings</a>
     </header>
     <nav>
@@ -29,8 +83,15 @@
         <a href="#">another option</a>
     </nav>
     <div class="main">
-
+        
     </div>
+
+
+
+    
+
+
+
     <section>
         <h1>
             Explore the playbook->
@@ -64,7 +125,7 @@
             </p>
             <img src="./assets/texture3.jpg" alt="">
         </div>
-    </section>
+    </section><!--
     <section id="s3">
         <h1>Test your knowledge!</h1>
         <div class="content3">
@@ -74,6 +135,7 @@
             <div class="hard"><a href="#"><img src="./assets/hard.png" alt="Hard">Hard</a></div>
         </div>
     </section>
+    -->
     <div class="end">
         <img src="./assets/contactus.gif" alt="Thank you!">
         <div class="rightp">
@@ -91,6 +153,8 @@
             Thank you for visiting playbook!
         </p>
     </footer>
+    
+    <script src="./js/app.js"></script>
 </body>
 
 </html>

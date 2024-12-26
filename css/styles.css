@@ -48,7 +48,22 @@ header {
     position: fixed;
     background-color: #FFFFFF;
 }
-
+header .btnLogin-popup{
+    font-size: 20px;
+    height: 50px;
+    width: 100px;
+    border: 5px solid #bf4345;
+    border-radius: 20px;
+    margin-top: 16px;
+    margin-left: -10px;
+    background-color: #df6365;
+    transition: 0.2s;
+}
+header .btnLogin-popup:hover{
+    background-color: #bf4345;
+    color: white;
+    cursor: pointer;
+}
 header .logo {
     z-index: 1001;
     height: 80px;
@@ -59,6 +74,8 @@ header .login {
     margin-top: 30px;
     color: black;
 }
+
+
 
 nav {
     z-index: 1000;
@@ -94,14 +111,180 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    border-bottom: 3px solid red;
+    border-bottom: 3px solid #df6365;
 }
 
 nav a {
     text-decoration: none;
-    color: red;
+    color: #df6365;
     text-transform: uppercase;
 }
+.wrapper {
+    z-index: 2000;
+    position: fixed;
+    align-self: center;
+    justify-self: center;
+    top: -50%;
+    left: 50%;
+    margin-top: -220px;
+    margin-left: -200px;
+    width: 400px;
+    background: transparent;
+    border: 5px solid #e8e8e8;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px #0008;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 440px;
+    transition: all .2s ease;
+    overflow: hidden;
+}
+.wrapper.active-popup{
+    top: 50%;
+}
+.wrapper.active {
+    height: 520px;
+    margin-top: -260px;
+}
+.wrapper .form-box{
+    margin-top: 20px;
+    width: 100%;
+    padding: 40px;
+}
+.wrapper .form-box.login{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+.wrapper.active .form-box.login{
+    transition: none;
+    transform: translateX(-400px);
+}
+.wrapper .form-box.register{
+    position: absolute;
+    transform: translateX(400px);
+}
+.wrapper.active .form-box.register{
+    transition: transform .18s ease;
+    transform: translateX(0px);
+}
+.wrapper .icon-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #df6365;
+    border: 5px solid #bf4345;
+    border-radius: 50%;
+    size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2001;
+}
+.form-box h2{
+    font-size: 2em;
+    font-weight: 700;
+    text-align: center;
+    color: black;
+}
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid black;
+    margin: 30px 0;
+}
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: black;
+    font-weight: 500;
+    pointer-events: none;
+    transition: 0.3s;
+}
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+}
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: black;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: black;
+    line-height: 57px;
+}
+.remember-forgot{
+    font-size: .9em;
+    color: black;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.remember-forgot label input{
+    accent-color: black;
+    margin-right: 3px;
+}
+.remember-forgot a{
+    color: black;
+    text-decoration: none;
+}
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+.btn {
+    width: 100%;
+    height: 45px;
+    background-color: #df6365;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    border: 5px solid #bf4345;
+    cursor: pointer;
+    font-size: 1em;
+    color: black;
+    transition: 0.2s;
+}
+.btn:hover{
+    background-color: #bf4345;
+    color: white;
+}
+.login-register{
+    font-size: .9em;
+    color: black;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+.login-register p a{
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+}
+.login-register p a:hover{
+    text-decoration: underline;
+}
+
+
+
 
 .main {
     width: 100%;
@@ -317,11 +500,37 @@ footer p {
     padding: 50px 5%;
 }
 
+.main2 p {
+    justify-content: space-between;
+    padding: 50px 0;
+    font-size: 28px;
+    font-weight: 300;
+    text-align: justify;
+}
+
+span {
+    font-size: 40px;
+    text-shadow: 0 0 2px #444;
+}
+
 .main2 .top {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 10px 50px;
+}
+
+.main2 .content {
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.main2 .content .sportimage {
+    border: 7px solid black;
+    border-radius: 20px;
+    margin-left: 100px;
+    margin-top: -30px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px #808080;
 }
 
 #search {
@@ -386,4 +595,11 @@ footer p {
 
 .main2 ul li a img:hover {
     filter: grayscale(0%) contrast(50%);
+}
+
+#sportsContainer p {
+    font-weight: 500;
+    line-height: 30px;
+    font-size: 20px;
+    text-shadow: 0 0 10px #444;
 }

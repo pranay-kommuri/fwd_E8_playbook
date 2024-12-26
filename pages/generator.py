@@ -1,10 +1,18 @@
+# Import necessary modules
+import os
+
+# Function to generate HTML content
+def generate_html(sport_name, content, index):
+    file_name = f"sport{index}.html"
+    html_content = f'''
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>playbook</title>
+    <title>{sport_name} | playbook</title>
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../js/app.js"></script>
     <script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
@@ -33,15 +41,7 @@
             <h1>Explore -> <span>{sport_name}</span> -> </h1>
         </div>
         <div class="content">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil illum unde odit pariatur, qui ab
-                doloremque ex illo nobis sunt, voluptas quod fugit commodi laboriosam in consequatur accusantium
-                recusandae! Nisi inventore culpa reiciendis enim cum similique sapiente optio? Aliquid commodi, officiis
-                incidunt ipsa reiciendis hic. Velit laudantium dolor obcaecati eaque culpa non ea vitae laborum
-                expedita, quis explicabo sint unde dicta aliquid debitis dolorem molestiae, error quasi laboriosam
-                voluptas doloribus! Assumenda quasi eos asperiores. Eveniet corrupti nemo aperiam exercitationem ut?
-                Repellat eos laborum quasi neque reprehenderit ipsum possimus rerum, itaque enim ipsa, deleniti iusto,
-                vitae laudantium distinctio maxime ducimus architecto.
-            </p>
+            <p>{content}</p>
             <div class="sportimage" style="background-image: url('../assets/sports/img{index}.jpg');"></div>
         </div>
     </div>
@@ -54,3 +54,24 @@
 </body>
 
 </html>
+'''
+    # Write the HTML content to the file
+    with open(file_name, 'w') as html_file:
+        html_file.write(html_content)
+
+    print(f"Created file: {file_name} for sport: {sport_name}")
+
+# Read sports and content
+with open('splist.txt', 'r') as sports_file:
+    sports = sports_file.readlines()
+
+with open('content.txt', 'r') as content_file:
+    contents = content_file.readlines()
+
+# Generate HTML files
+for i, (sport, content) in enumerate(zip(sports, contents), start=1):
+    sport_name = sport.strip()
+    content_text = content.strip()
+    
+    # Generate HTML for each sport
+    generate_html(sport_name, content_text, i)
