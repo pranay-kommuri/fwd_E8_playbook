@@ -88,40 +88,84 @@
 
 
     <div class="main">
+        <div class="content">
+            <h1>Thrive in the Indian Heat: Your Playbook for Sporting Success!</h1>
+            <p>
+                Feel the game, ignite your passion. Every moment on the field is an opportunity to push your limits, conquer challenges, and embrace the thrill of victory. Whether you win or lose, the experience fuels your spirit, driving you to strive harder. Let the game elevate you to greatness!
+            </p>
+        </div>
         <div class="arrows">
             <button id="prev"><ion-icon name="arrow-back-circle"></ion-icon></button>
             <button id="next"><ion-icon name="arrow-forward-circle"></ion-icon></button>
         </div>
         <div class="flipbook-container">
-            <div class="flipbook">
-                <div class="hard">My Pokemon Gallery <small>~ HankTheTank</small></div>
-                <div class="hard"></div>
-                <div>
-                    <small>Lets Look At Some Amazing Pokemon ❤️</small>
-                    <small>Gotta Catch 'Em All</small>
+            <div id="flipbook">
+                <div class="page">Placeholder</div>
+                <div class="page">
+                    <h1>Kabaddi</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at voluptatem tenetur magni? Porro harum labore quam, temporibus similique, iste cumque voluptates hic quod cum quis dicta est? Provident, in.    
+                    </p>
                 </div>
-                <div>
-                    <img src="./assets/hard.png" alt="" />
-                    <small> Charmandar </small>
+                <div class="page"><img src="./assets/texture3.jpg" alt="img1"></div>
+
+                <div class="page">
+                    <h1>Kho Kho</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at voluptatem tenetur magni? Porro harum labore quam, temporibus similique, iste cumque voluptates hic quod cum quis dicta est? Provident, in.    
+                    </p>
                 </div>
-                <div>
-                    <img src="./assets/hard.png" alt="" />
-                    <small> Arbok </small>
+                <div class="page"><img src="./assets/texture3.jpg" alt="img1"></div>
+
+                <div class="page">
+                    <h1>Mallakhamb</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at voluptatem tenetur magni? Porro harum labore quam, temporibus similique, iste cumque voluptates hic quod cum quis dicta est? Provident, in.    
+                    </p>
                 </div>
-                <div>
-                    <img src="./assets/hard.png" alt="" />
-                    <small> Pikachu </small>
+                <div class="page"><img src="./assets/texture3.jpg" alt="img1"></div>
+
+                <div class="page">
+                    <h1>Pehlwani (Traditional Wrestling)</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at voluptatem tenetur magni? Porro harum labore quam, temporibus similique, iste cumque voluptates hic quod cum quis dicta est? Provident, in.    
+                    </p>
                 </div>
-                <div>
-                    <img src="./assets/hard.png" alt="" />
-                    <small> Mew </small>
+                <div class="page"><img src="./assets/texture3.jpg" alt="img1"></div>
+
+                <div class="page">
+                    <h1>Gilli Danda</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at voluptatem tenetur magni? Porro harum labore quam, temporibus similique, iste cumque voluptates hic quod cum quis dicta est? Provident, in.    
+                    </p>
                 </div>
-                <div>
-                    <img src="./assets/hard.png" alt="" />
-                    <small> Darkrai </small>
+                <div class="page"><img src="./assets/texture3.jpg" alt="img1"></div>
+
+                <div class="page">
+                    <h1>Atya Patya</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at voluptatem tenetur magni? Porro harum labore quam, temporibus similique, iste cumque voluptates hic quod cum quis dicta est? Provident, in.    
+                    </p>
                 </div>
-                <div class="hard"></div>
-                <div class="hard">Thank You <small>~ HankTheTank</small></div>
+                <div class="page"><img src="./assets/texture3.jpg" alt="img1"></div>
+
+                <div class="page">
+                    <h1>Astapadham</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at voluptatem tenetur magni? Porro harum labore quam, temporibus similique, iste cumque voluptates hic quod cum quis dicta est? Provident, in.    
+                    </p>
+                </div>
+                <div class="page"><img src="./assets/texture3.jpg" alt="img1"></div>
+
+                <div class="page">
+                    <h1>Andhadhun</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at voluptatem tenetur magni? Porro harum labore quam, temporibus similique, iste cumque voluptates hic quod cum quis dicta est? Provident, in.    
+                    </p>
+                </div>
+                <div class="page"><img src="./assets/texture3.jpg" alt="img1"></div>
+
+                <div class="page">Placeholder</div>
             </div>
         </div>
     </div>
@@ -183,19 +227,55 @@
     <script src="./js/turn.js"></script>
     <script src="./js/app.js"></script>
     <script>
-        $('.flipbook').turn();
-        $('.flipbook').turn('display','double');
-        $('.flipbook').turn('inclination',10);
-        $('.flipbook').turn('disable',false);
         let next = document.getElementById('next');
         let prev = document.getElementById('prev');
         next.onclick = function(){
-            $('.flipbook').turn('next');
+            $('#flipbook').turn('next');
         }
         prev.onclick = function(){
-            $('.flipbook').turn('previous');
+            $('#flipbook').turn('previous');
         }
+        $(document).ready(function () {
+            const totalRealPages = 16; // Total real pages in the flipbook
+
+            // Initialize flipbook
+            $('#flipbook').turn({
+                width: 550,
+                height: 360,
+                autoCenter: true,
+            });
+
+            // Start at a random real page
+            const randomPage = Math.floor(Math.random() * totalRealPages) + 1;
+            $('#flipbook').turn('page', randomPage + 1); // +1 accounts for the initial placeholder page
+
+            // Circular navigation logic with dynamic page assignment
+            $('#flipbook').on('turning', function (event, page) {
+                const totalPages = $(this).turn('pages');
+
+                if (page === totalPages) {
+                    event.preventDefault();
+                    $(this).turn('page', 2);
+                    return;
+                }
+
+                if (page === 1) {
+                    event.preventDefault();
+                    $(this).turn('page', totalPages - 1);
+                    return;
+                }
+
+                // Adjust page labels dynamically
+                const currentPage = (page - 1) % totalRealPages || totalRealPages;
+                const previousPage = currentPage === 1 ? totalRealPages : currentPage - 1;
+                const nextPage = currentPage === totalRealPages ? 1 : currentPage + 1;
+
+                console.log(`Current Page: ${currentPage}, Previous Page: ${previousPage}, Next Page: ${nextPage}`);
+
+                // Optionally, you can update the content dynamically here
+                // For example, if the page elements need to display the updated page numbers dynamically
+            });
+        });
     </script>
 </body>
-
 </html>
