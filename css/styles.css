@@ -120,37 +120,41 @@ nav a {
 }
 
 .arrows{
-    position: fixed;
-    top: 50vh;
+    position: absolute;
     left: 0;
-    z-index: 50000;
+    z-index: 700;
     display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-self: center;
 }
 .arrows button{
     color: rgb(0, 0, 0);
-    background-color: #00000000;
-    width: 200px;
+    background: none;
+    border: none;
+    width: 50px;
     height: 100px;
+    margin: 20px;
     font-size: 40px;
     transition: 0.3s;
     align-items: center;
     cursor: pointer;
+    text-align: center;
 }
 .arrows button:hover{
     font-size: 50px;
 }
 
 .flipbook-container{
-    transform: rotate(-30deg);
-    z-index: 5000;
+    transform: perspective(1000px) translateY(-18%) translateZ(0);
+    z-index: 700;
     position: absolute;
     top: 40vh;
     right: 20vh;
 }
 .flipbook {
-    width: 500px;
-    height: 300px;
-    transform: rotate(45deg);
+    width: calc(500px*1);
+    height: calc(300px*1);
 }
 
 .flipbook .hard {
@@ -385,6 +389,7 @@ section h1 {
 }
 
 section p {
+    z-index: 500;
     align-self: center;
     font-size: 24px;
     line-height: 30px;

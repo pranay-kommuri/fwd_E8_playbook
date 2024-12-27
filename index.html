@@ -88,42 +88,42 @@
 
 
     <div class="main">
-    <div class="arrows">
-        <button id="prev"><ion-icon name="arrow-back-circle"></ion-icon></button>
-        <button id="next"><ion-icon name="arrow-forward-circle"></ion-icon></button>
-    </div>
-    <div class="flipbook-container">
-    <div class="flipbook">
-        <div class="hard">My Pokemon Gallery <small>~ HankTheTank</small></div>
-        <div class="hard"></div>
-        <div>
-          <small>Lets Look At Some Amazing Pokemon ❤️</small>
-          <small>Gotta Catch 'Em All</small>
+        <div class="arrows">
+            <button id="prev"><ion-icon name="arrow-back-circle"></ion-icon></button>
+            <button id="next"><ion-icon name="arrow-forward-circle"></ion-icon></button>
         </div>
-        <div>
-          <img src="./assets/hard.png" alt="" />
-          <small> Charmandar </small>
+        <div class="flipbook-container">
+            <div class="flipbook">
+                <div class="hard">My Pokemon Gallery <small>~ HankTheTank</small></div>
+                <div class="hard"></div>
+                <div>
+                    <small>Lets Look At Some Amazing Pokemon ❤️</small>
+                    <small>Gotta Catch 'Em All</small>
+                </div>
+                <div>
+                    <img src="./assets/hard.png" alt="" />
+                    <small> Charmandar </small>
+                </div>
+                <div>
+                    <img src="./assets/hard.png" alt="" />
+                    <small> Arbok </small>
+                </div>
+                <div>
+                    <img src="./assets/hard.png" alt="" />
+                    <small> Pikachu </small>
+                </div>
+                <div>
+                    <img src="./assets/hard.png" alt="" />
+                    <small> Mew </small>
+                </div>
+                <div>
+                    <img src="./assets/hard.png" alt="" />
+                    <small> Darkrai </small>
+                </div>
+                <div class="hard"></div>
+                <div class="hard">Thank You <small>~ HankTheTank</small></div>
+            </div>
         </div>
-        <div>
-          <img src="./assets/hard.png" alt="" />
-          <small> Arbok </small>
-        </div>
-        <div>
-          <img src="./assets/hard.png" alt="" />
-          <small> Pikachu </small>
-        </div>
-        <div>
-          <img src="./assets/hard.png" alt="" />
-          <small> Mew </small>
-        </div>
-        <div>
-          <img src="./assets/hard.png" alt="" />
-          <small> Darkrai </small>
-        </div>
-        <div class="hard"></div>
-        <div class="hard">Thank You <small>~ HankTheTank</small></div>
-    </div>
-    </div>
     </div>
     <section>
         <h1>
@@ -181,8 +181,11 @@
     
     <script src="./js/jquery.js"></script>
     <script src="./js/turn.js"></script>
+    <script src="./js/app.js"></script>
     <script>
         $('.flipbook').turn();
+        $('.flipbook').turn('display','double');
+        $('.flipbook').turn('inclination',10);
         $('.flipbook').turn('disable',false);
         let next = document.getElementById('next');
         let prev = document.getElementById('prev');
