@@ -34,6 +34,10 @@ body {
     overflow-y: visible;
 }
 
+img{
+    object-fit: cover;
+    object-position: center;
+}
 
 header {
     top: 0;
@@ -206,7 +210,6 @@ nav a {
     transition: 0.3s;
     border: 10px solid #000;
     border-radius: 10px;
-    object-fit: cover;
 }
 .page h1{
     font-size: 30px;
@@ -403,14 +406,14 @@ nav a {
 
 section {
     z-index: 800;
-    height: 120vh;
+    height: 10px;
     width: 100%;
     padding: 0 5%;
     background-color: #FFFFFF;
-    box-shadow: 0px -10px 10px #00000010;
+    box-shadow: 0px 10px 10px #00000010;
     display: flex;
     flex-direction: column;
-    border-bottom: 2px solid #636363;
+    border-top: 2px solid #636363;
 }
 
 section h1 {
@@ -524,55 +527,66 @@ section ul li img:hover {
 }
 
 #s3 {
-    border-top: 2px solid #808080;
+    border-bottom: 2px solid #808080;
     height: 80vh;
     padding-top: 50px;
-    box-shadow: 0px 10px 10px #00000010;
-    border-bottom: none;
+    box-shadow: 0px -10px 10px #00000010;
+    border-top: none;
 }
-
+#s3 p{
+    font-size: 30px;
+    line-height: 36px;
+    margin: 0 60px;
+    margin-top: 0px;
+    margin-left: 90px;
+}
 #s3 .content3 {
     display: grid;
-    grid-template-columns: 46% 18% 18% 18%;
+    grid-template-columns: 85% 15%;
     align-items: center;
     justify-content: space-between;
 }
-
+#s3 div ul{
+    display: flex;
+    flex-direction: column;
+    height: 20vh;
+    margin-top: -44vh;
+}
 #s3 img {
-    width: 150px;
-    margin-top: 22px;
+    width: 100px;
+    height: 100px;
     filter: grayscale(100%);
     transition: 0.3s;
     border: 7px solid black;
     box-shadow: 0 0 10px #808080;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 #s3 .content3 div {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    width: 80%;
-    height: 40vh;
-    margin: 0 20px;
     display: flex;
     justify-content: center;
-    margin-right: 100px;
+    margin-right: 0px;
+    margin: 10px;
 }
 
-#s3 a {
+#s3 a{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     line-height: 40px;
     font-size: 20px;
+    text-decoration: none;
+    color: #df6365;
+}
+#s3 a:hover{
+    color: #bf4345;
+    font-weight: 700;
 }
 
-#s3 p {
-    margin-left: 90px;
-    font-size: 36px;
-}
 
 .end {
     height: 40vh;
@@ -663,11 +677,25 @@ span {
     font-weight: 400;
 }
 
-.main2 ul {
+.main2 ul#sportsContainer {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(4, auto);
     list-style-type: none;
+    gap: 20px;
+}
+
+.main2 ul li a p {
+    font-weight: 500;
+    line-height: 30px;
+    font-size: 20px;
+    text-shadow: 0 0 10px #444;
+}
+
+#sc2{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, auto);
     gap: 20px;
 }
 
@@ -717,13 +745,6 @@ span {
 
 .main2 ul li a img:hover {
     filter: grayscale(0%) contrast(50%);
-}
-
-#sportsContainer p {
-    font-weight: 500;
-    line-height: 30px;
-    font-size: 20px;
-    text-shadow: 0 0 10px #444;
 }
 
 .app{
@@ -813,4 +834,27 @@ span {
 }
 .btn1.incorrect:hover{
     background: #bf4345;
+}
+
+.dropdown{
+    width: 120px;
+    background-color: rgb(255, 255, 255);
+    border: 5px solid #f0f0f0;
+    position: absolute;
+    z-index: 2000;
+    display: none;
+    margin-top: 12px;
+    margin-left: -30px;
+}
+.dropdown li{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dropdown li a:hover{
+    border-bottom: 3px solid #bf4345;
+}
+nav ul li:hover ul.dropdown{
+    display: block;
 }
