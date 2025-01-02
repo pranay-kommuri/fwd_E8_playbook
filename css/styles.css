@@ -54,7 +54,7 @@ header {
 header .btnLogin-popup{
     font-size: 20px;
     height: 50px;
-    width: 100px;
+    padding: 0 10px;
     border: 5px solid #bf4345;
     border-radius: 20px;
     margin-top: 16px;
@@ -120,6 +120,12 @@ nav a {
     text-decoration: none;
     color: #df6365;
     text-transform: uppercase;
+}
+.state{
+    text-decoration: none;
+    color: #df6365;
+    text-transform: uppercase;
+
 }
 
 .arrows{
@@ -528,7 +534,7 @@ section ul li img:hover {
 
 #s3 {
     border-bottom: 2px solid #808080;
-    height: 80vh;
+    height: 850px;
     padding-top: 50px;
     box-shadow: 0px -10px 10px #00000010;
     border-top: none;
@@ -541,25 +547,26 @@ section ul li img:hover {
     margin-left: 90px;
 }
 #s3 .content3 {
-    display: grid;
-    grid-template-columns: 85% 15%;
     align-items: center;
     justify-content: space-between;
 }
-#s3 div ul{
+#s3 ul{
     display: flex;
-    flex-direction: column;
-    height: 20vh;
-    margin-top: -44vh;
+    flex-direction: row;
+    height: 50vh;
+    margin-top: 80px;
+    position: relative;
+    padding: 0 360px;
 }
 #s3 img {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 160px;
     filter: grayscale(100%);
     transition: 0.3s;
     border: 7px solid black;
     box-shadow: 0 0 10px #808080;
     border-radius: 10px;
+    object-fit: contain;
 }
 
 #s3 .content3 div {
@@ -577,8 +584,8 @@ section ul li img:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    line-height: 40px;
-    font-size: 20px;
+    line-height: 60px;
+    font-size: 30px;
     text-decoration: none;
     color: #df6365;
 }
@@ -586,6 +593,7 @@ section ul li img:hover {
     color: #bf4345;
     font-weight: 700;
 }
+
 
 
 .end {
