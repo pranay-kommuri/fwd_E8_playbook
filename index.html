@@ -30,7 +30,7 @@
                     <li><a href="./quizhard.html">Hard</a></li>
                 </ul>
             </li>
-            <li><a href="./sourcecode.html">project</a></li>
+            <li><a href="https://github.com/pranay-kommuri/fwd_E8_playbook" target="_blank">project</a></li>
             <li><a href="./about.html">About us</a></li>
             <li><a href="./contact.html">Contact</a></li>
         </ul>
@@ -112,7 +112,7 @@
                 <div class="page">
                     <h1>Kabaddi</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at voluptatem tenetur magni? Porro harum labore quam, temporibus similique, iste cumque voluptates hic quod cum quis dicta est? Provident, in.    
+                        Kabaddi is a contact team sport originating in India, where players take turns to raid the opposing team's half, tagging as many defenders as possible while holding their breath and chanting "kabaddi."    
                     </p>
                 </div>
                 <div class="page"><img src="./assets/exploreimages/img1.jpg" alt="img1"></div>
@@ -120,7 +120,7 @@
                 <div class="page">
                     <h1>Kho Kho</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at voluptatem tenetur magni? Porro harum labore quam, temporibus similique, iste cumque voluptates hic quod cum quis dicta est? Provident, in.    
+                        Kho Kho is a traditional Indian tag game played on a rectangular field with two teams of 12 players each, where nine members of the chasing team sit in a row alternately facing opposite directions.
                     </p>
                 </div>
                 <div class="page"><img src="./assets/exploreimages/img2.jpg" alt="img1"></div>
@@ -128,7 +128,7 @@
                 <div class="page">
                     <h1>Mallakhamb</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at voluptatem tenetur magni? Porro harum labore quam, temporibus similique, iste cumque voluptates hic quod cum quis dicta est? Provident, in.    
+                        Mallakhamb is an ancient Indian sport that combines gymnastics and yoga, performed on a vertical wooden pole, rope, or cane. Athletes demonstrate complex poses, strength, and flexibility while balancing   
                     </p>
                 </div>
                 <div class="page"><img src="./assets/exploreimages/img3.jpg" alt="img1"></div>
@@ -136,7 +136,7 @@
                 <div class="page">
                     <h1>Pehlwani (Traditional Wrestling)</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at voluptatem tenetur magni? Porro harum labore quam, temporibus similique, iste cumque voluptates hic quod cum quis dicta est? Provident, in.    
+                        Pehlwani, also known as Kushti, is a traditional form of wrestling in India, performed on a clay or sand-based arena. Wrestlers, called pehlwans, undergo rigorous training and adhere to a strict diet
                     </p>
                 </div>
                 <div class="page"><img src="./assets/exploreimages/img4.jpg" alt="img1"></div>
@@ -144,7 +144,7 @@
                 <div class="page">
                     <h1>Gilli Danda</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at voluptatem tenetur magni? Porro harum labore quam, temporibus similique, iste cumque voluptates hic quod cum quis dicta est? Provident, in.    
+                        Gilli Danda is a rural Indian sport similar to cricket and baseball, played using two wooden sticks—a short stick (gilli) and a longer one (danda). Players strike the gilli with the danda to propel it    
                     </p>
                 </div>
                 <div class="page"><img src="./assets/exploreimages/img5.jpg" alt="img1"></div>
@@ -152,7 +152,7 @@
                 <div class="page">
                     <h1>Atya Patya</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at voluptatem tenetur magni? Porro harum labore quam, temporibus similique, iste cumque voluptates hic quod cum quis dicta est? Provident, in.    
+                        Atya Patya is a traditional Indian tag game involving two teams, played on a rectangular court divided into multiple lanes. Defenders occupy these lanes, while attackers aim to cross all lanes  
                     </p>
                 </div>
                 <div class="page"><img src="./assets/exploreimages/img6.jpg" alt="img1"></div>
@@ -160,7 +160,7 @@
                 <div class="page">
                     <h1>Astapadham</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at voluptatem tenetur magni? Porro harum labore quam, temporibus similique, iste cumque voluptates hic quod cum quis dicta est? Provident, in.    
+                        Astapadham is a traditional Indian board game played on a grid resembling a lotus with eight petals. Players use dice to move their pieces, with the objective of completing a circuit   
                     </p>
                 </div>
                 <div class="page"><img src="./assets/exploreimages/img7.jpg" alt="img1"></div>
@@ -168,7 +168,7 @@
                 <div class="page">
                     <h1>Andhadhun</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at voluptatem tenetur magni? Porro harum labore quam, temporibus similique, iste cumque voluptates hic quod cum quis dicta est? Provident, in.    
+                        Andhadhun, meaning "blind chase," is a recreational activity where a blindfolded player attempts to catch others in a restricted area. Known in various forms across India   
                     </p>
                 </div>
                 <div class="page"><img src="./assets/exploreimages/img8.jpg" alt="img1"></div>
@@ -284,7 +284,7 @@
 
 
 
-    <script>// Check if the user is signed in or not when the page loads
+    <script>
         window.onload = function () {
           fetch('/check-session', {
             method: 'GET',
@@ -292,16 +292,12 @@
             .then(response => response.json())
             .then(data => {
               if (data.loggedIn) {
-                // If the user is logged in, change button text to "Sign out"
                 document.querySelector('.btnLogin-popup').innerText = 'Sign out';
-                document.querySelector('.state').innerText = `You are signed in as ${data.username}`; // Update <p> tag with username
-                // Enable all <a> tags to allow navigation
+                document.querySelector('.state').innerText = `You are signed in as ${data.username}`;
                 enableLinks();
               } else {
-                // If the user is not logged in, reset the button text to "Sign in"
                 document.querySelector('.btnLogin-popup').innerText = 'Sign in';
-                document.querySelector('.state').innerText = 'You are not signed in'; // Update <p> tag text for not signed in state
-                // Disable all <a> tags to prompt sign in
+                document.querySelector('.state').innerText = 'You are not signed in';
                 disableLinks();
               }
             })
@@ -313,31 +309,29 @@
           const links = document.querySelectorAll('a');
           links.forEach(link => {
             link.addEventListener('click', () => {
-              // Allow navigation when signed in
             });
           });
         }
         
         // Function to disable all <a> tags and prompt sign in
         function disableLinks() {
-          const links = document.querySelectorAll('a');
-          links.forEach(link => {
-            link.addEventListener('click', (e) => {
-              e.preventDefault(); // Prevent default navigation behavior
-              showSignInPopup(); // Trigger sign-in window or modal
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                if (!link.classList.contains('register-link') && !link.classList.contains('login-link')) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        showSignInPopup(); 
+                    });
+                }
             });
-          });
         }
+
         
-        // Show the sign-in popup/modal (your modal logic here)
         function showSignInPopup() {
-          // Implement your modal popup logic here
           alert("Please sign in to access this link.");
         }
         
-        // Event listener for the "Sign out" button
         document.querySelector('.btnLogin-popup').addEventListener('click', function (e) {
-          // If the button is for "Sign out" and the user is signed in, proceed to sign out
           if (e.target.innerText === 'Sign out') {
             fetch('/signout', {
               method: 'POST',
@@ -345,11 +339,9 @@
               .then(response => response.json())
               .then(data => {
                 if (data.loggedIn === false) {
-                  // If sign-out is successful, update button text and disable it
                   document.querySelector('.btnLogin-popup').innerText = 'Sign in';
-                  document.querySelector('p').innerText = 'You are not signed in';  // Update <p> text
-                  // Refresh the page to reflect the updated state
-                  window.location.reload();  // This will refresh the page
+                  document.querySelector('p').innerText = 'You are not signed in'; 
+                  window.location.reload(); 
                 }
               })
               .catch(err => console.error('Error logging out:', err));

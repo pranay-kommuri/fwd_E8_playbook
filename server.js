@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { MongoClient } = require('mongodb');
 const path = require('path');
-const session = require('express-session'); // Import express-session
+const session = require('express-session'); 
 
 const app = express();
 const port = 3000;
@@ -13,22 +13,20 @@ app.use(bodyParser.json());
 
 // Session middleware setup
 app.use(session({
-  secret: 'your-secret-key',  // Secret key for session encryption
+  secret: 'your-secret-key', 
   resave: false,
   saveUninitialized: true,
 }));
 
-// Serve all static files from the project directory
 app.use(express.static(path.join(__dirname)));
 
-// Serve the main HTML file
 app.get('/', (req, res) => {
   const mainHtml = path.join(__dirname, 'index.html');
   res.sendFile(mainHtml);
 });
 
 // MongoDB connection setup
-const uri = "mongodb://localhost:27017"; // Adjust to your MongoDB URI
+const uri = "mongodb://localhost:27017"; 
 const client = new MongoClient(uri);
 
 let usersCollection;
@@ -36,14 +34,13 @@ let usersCollection;
 client.connect()
   .then(() => {
     console.log("Connected to MongoDB");
-    const db = client.db('playbook'); // Updated database name
-    usersCollection = db.collection('users'); // Updated collection name
+    const db = client.db('playbook'); 
+    usersCollection = db.collection('users'); 
   })
   .catch(err => console.error("Failed to connect to MongoDB:", err));
 
-// Sign-up route
 app.post('/signup', async (req, res) => {
-  const { username, email, password } = req.body; // Destructure form data
+  const { username, email, password } = req.body;
 
   if (!username || !email || !password) {
     return res.status(400).send({ message: "All fields are required!" });
@@ -57,13 +54,13 @@ app.post('/signup', async (req, res) => {
 
     await usersCollection.insertOne({ username, email, password });
     res.status(201).send({ message: "User registered successfully!" });
+    res.redirect('/');
   } catch (error) {
     console.error(error);
     res.status(500).send({ message: "Error registering user" });
   }
 });
 
-// Sign-in route
 app.post('/signin', async (req, res) => {
     const { email, password } = req.body;
   
@@ -72,16 +69,13 @@ app.post('/signin', async (req, res) => {
     }
   
     try {
-      // Check if user exists with the provided credentials
       const user = await usersCollection.findOne({ email, password });
       if (!user) {
         return res.status(401).send({ message: "Invalid email or password!" });
       }
   
-      // Set session variable for the logged-in user
       req.session.user = user;
   
-      // Redirect back to the home page after successful sign-in
       res.redirect('/');
     } catch (error) {
       console.error(error);

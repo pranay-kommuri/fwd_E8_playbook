@@ -685,7 +685,7 @@ span {
     font-weight: 400;
 }
 
-.main2 ul#sportsContainer {
+.main2 ul{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(4, auto);
