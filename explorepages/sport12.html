@@ -8,32 +8,36 @@
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../js/app.js"></script>
     <script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
     <header>
-        <img src="../assets/logowithtext.png" alt="Playbook Logo" class="logo">
-        <a href="#" class="login">Log in</a>
-        <a href="#" class="login">Settings</a>
+        <img src="../assets/logowithtext.png" alt="logowithtext" class="logo">
     </header>
     <nav>
         <ul>
             <li><a href="../index.html">Home</a></li>
             <li><a href="../explore.html">Explore</a></li>
-            <li><a href="../gallery.html">Gallery</a></li>
-            <li><a href="../about.html">About Us</a></li>
+            <li><a href="#">Quiz <ion-icon name="caret-down"></ion-icon></a>
+                <ul class="dropdown">
+                    <li><a href="../quizeasy.html">Easy</a></li>
+                    <li><a href="../quizmedium.html">Medium</a></li>
+                    <li><a href="../quizhard.html">Hard</a></li>
+                </ul>
+            </li>
+            <li><a href="https://github.com/pranay-kommuri/fwd_E8_playbook" target="_blank">project</a></li>
+            <li><a href="../about.html">About us</a></li>
             <li><a href="../contact.html">Contact</a></li>
-            <li><a href="../quiz.html">Quiz</a></li>
-            <li><a href="../news.html">News</a></li>
         </ul>
-        <a href="#">Another Option</a>
     </nav>
     <div class="main2">
         <div class="top">
-            <h1>Explore -> <span>Silambam (Stick Fighting)</span> -></h1>
+            <h1>Explore <ion-icon name="arrow-forward"></ion-icon> <span>Silambam (Stick Fighting)</span> <ion-icon name="arrow-forward"></ion-icon></h1>
         </div>
         <div class="content">
             <p>Silambam is a traditional martial art from Tamil Nadu, focusing on combat with a bamboo staff. Practitioners train in swift strikes, defensive blocks, and rhythmic footwork, often integrating other weapons like swords and shields. Originating as a self-defense technique, it has evolved into a competitive sport emphasizing agility and coordination. Silambam is deeply tied to Tamil heritage, celebrated in festivals and martial arts events, and gaining recognition on global platforms.</p>
-            <div class="sportimage" style="background-image: url('../assets/sports/img12.jpg');"></div>
+            <div class="sportimage" style="background-image: url('../assets/exploreimages/img12.jpg');"></div>
         </div>
     </div>
     <footer>
