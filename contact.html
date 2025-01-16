@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="shortcut icon" href="./assets/logo.png" type="png">
 </head>
 
 <body>
@@ -43,23 +44,35 @@
 We'd love to hear from you! Whether you have a question, feedback, or just want to say hello, feel free to reach out to us.<br>
 <br>
 Contact Information:<br>
-<ion-icon name="mail"></ion-icon> Email: playbookE8@gmail.com<br>
-<ion-icon name="call"></ion-icon> Phone: +91 84037 69492<br>
-<ion-icon name="time"></ion-icon> Hours: Monday - Friday, 9:00 AM - 5:00 PM<br>
+<ion-icon name="mail"></ion-icon> Email: <a id="emailLink" href="#" class="socials">playbook.desk@gmail.com</a>
+<script>
+    function openGmail() {
+        const recipient = 'playbook.desk@gmail.com';
+        const subject = 'Feedback on playbook!';
+        const body = '\nDear Playbook,\n\nI am a huge fan of the website 🤩, but . . .';
+
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.open(gmailUrl, '_blank');
+    }
+
+    document.getElementById('emailLink').addEventListener('click', openGmail);
+
+</script><br>
+<ion-icon name="time"></ion-icon> Hours: 24/7, All days of the year<br>
 <br>
 Send Us a Message:<br>
 Forward an email and let us know!<br>
 <br>
 Follow Us:<br>
-Stay connected with us on social media for updates and news:<br>
-<br>
-<ion-icon name="logo-facebook"></ion-icon>  playbookE8<br>
-<ion-icon name="logo-twitter"></ion-icon>  the_playbook_E8<br>
-<ion-icon name="logo-instagram"></ion-icon>  playbook_E8<br>
+<ion-icon name="logo-facebook"></ion-icon> <a href="https://www.facebook.com/profile.php?id=61572171535512" target="_blank" class="socials"> Playbook Desk</a><br>
+<ion-icon name="logo-twitter"></ion-icon> <a href="https://x.com/theplaybook_E8" target="_blank" class="socials"> theplaybook_E8</a><br>
+<ion-icon name="logo-instagram"></ion-icon> <a href="https://www.instagram.com/playbook.official" target="_blank" class="socials"> playbook.official</a><br>
 <br>
 We value your input and look forward to connecting with you!<br>
             </p>
-            <div class="sportimage" style="background-image: url('./assets/kidsplaying.jpg');"></div>
+            <div class="sportimage container">  
+            </div>
         </div>
     </div>
     <footer>

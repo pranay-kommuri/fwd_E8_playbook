@@ -15,6 +15,7 @@
 
 <body>
     
+    <!-------======== Header and Navbar ========------->
     <header>
         <img src="./assets/logowithtext.png" alt="logowithtext" class="logo">
         <button class="btnLogin-popup">Sign in</button>
@@ -59,12 +60,12 @@
                     <a href="#">Forgot Password?</a>
                 </div>
                 <button type="submit" class="btn">Sign in</button>
+                <button type="submit" formaction="/signin-admin" class="btn2">Sign in as admin</button>
                 <div class="login-register">
                     <p>Don't have an account? <a href="#" class="register-link">Sign up</a></p>
                 </div>
             </form>            
         </div>
-
         <div class="form-box register">
             <h2>Sign up</h2>
             <form action="/signup" method="POST">
@@ -102,10 +103,12 @@
                 Feel the game, ignite your passion. Every moment on the field is an opportunity to push your limits, conquer challenges, and embrace the thrill of victory. Whether you win or lose, the experience fuels your spirit, driving you to strive harder. Let the game elevate you to greatness!
             </p>
         </div>
+
         <div class="arrows">
             <button id="prev"><ion-icon name="arrow-back-circle"></ion-icon></button>
             <button id="next"><ion-icon name="arrow-forward-circle"></ion-icon></button>
         </div>
+        
         <div class="flipbook-container">
             <div id="flipbook">
                 <div class="page">Playbook <br><small>~by Team E8</small></div>
@@ -209,11 +212,27 @@
         <div class="rightp">
             <p>We’d love to hear from you! If you have any questions, suggestions, or feedback about Playbook, feel free to reach out. Let’s connect to celebrate and preserve the legacy of traditional Indian sports together.<br>
                 
-                Email: support@playbook.in<br>
-                Phone: +91-12345-67890<br>
-                Social Media: Follow us on Facebook, Twitter, and Instagram @PlaybookSports<br>
+                Email: <a id="emailLink" href="#" class="endurl">playbook.desk@gmail.com</a>
+
+                <script>
+                    function openGmail() {
+                        const recipient = 'playbook.desk@gmail.com';
+                        const subject = 'Feedback on playbook!';
+                        const body = '\nDear Playbook,\n\nI am a huge fan of the website 🤩, but . . .';
+
+                    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    
+                    window.open(gmailUrl, '_blank');
+                    }
+
+                    document.getElementById('emailLink').addEventListener('click', openGmail);
+
+                </script><br>
+                Social Media: Follow us on <a href="https://www.facebook.com/profile.php?id=61572171535512" target="_blank" class="endurl">Facebook</a>,
+                 <a href="https://x.com/theplaybook_E8" target="_blank" class="endurl">Twitter</a>,
+                 and <a href="https://www.instagram.com/playbook.official" target="_blank" class="endurl"> playbook.official</a><br>
                 
-                We’ll get back to you as soon as possible!
+                More info on the <a href="./contact.html" class="endurl">Contact</a> page!
             </p>
         </div>
     </div>
@@ -332,22 +351,31 @@
         }
         
         document.querySelector('.btnLogin-popup').addEventListener('click', function (e) {
-          if (e.target.innerText === 'Sign out') {
+        if (e.target.innerText === 'Sign out') {
             fetch('/signout', {
-              method: 'POST',
+            method: 'POST',
             })
-              .then(response => response.json())
-              .then(data => {
+            .then(response => response.json())
+            .then(data => {
                 if (data.loggedIn === false) {
-                  document.querySelector('.btnLogin-popup').innerText = 'Sign in';
-                  document.querySelector('p').innerText = 'You are not signed in'; 
-                  window.location.reload(); 
+                document.querySelector('.btnLogin-popup').innerText = 'Sign in';
+                document.querySelector('.state').innerText = 'You are not signed in';
+                disableLinks(); // Ensure links are disabled when signed out
                 }
-              })
-              .catch(err => console.error('Error logging out:', err));
-          }
+            })
+            .catch(err => console.error('Error logging out:', err));
+        }
         });
-        
+
+        app.get('/debug-admins', async (req, res) => {
+            try {
+                const admins = await adminsCollection.find({}).toArray();
+                res.json(admins);
+            } catch (error) {
+                console.error("Error fetching admins:", error);
+                res.status(500).send({ message: "Error fetching admins" });
+            }
+            });
       </script>
       
      

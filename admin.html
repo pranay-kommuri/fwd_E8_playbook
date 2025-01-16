@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: "Lexend", serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+        }
+        body {
+            width: 100%;
+            padding: 100px 5%;
+        }
+        .sport-list {
+            margin: 20px 0;
+        }
+        .sport-item {
+            margin: 10px 0;
+        }
+        .sport-item span {
+            margin-right: 10px;
+        }
+        .edit-form, .add-form {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .edit-form input, .add-form input, .edit-form textarea, .add-form textarea {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Admin Panel</h1>
+
+<!-- List of existing sports -->
+<div class="sport-list" id="sport-list">
+    <!-- Sports will be listed here dynamically -->
+</div>
+
+<!-- Form to Edit Sport -->
+<div class="edit-form" id="edit-form" style="display:none;">
+    <h2>Edit Sport</h2>
+    <input type="hidden" id="edit-sport-id" />
+    <label for="edit-sport-name">Sport Name:</label>
+    <input type="text" id="edit-sport-name" />
+    <label for="edit-sport-content">Sport Content:</label>
+    <textarea id="edit-sport-content"></textarea>
+    <label for="edit-sport-image">Sport Image URL:</label>
+    <input type="text" id="edit-sport-image" />
+    <button onclick="saveSport()">Save</button>
+    <button onclick="cancelEdit()">Cancel</button>
+</div>
+
+<!-- Form to Add New Sport -->
+<div class="add-form">
+    <h2>Add New Sport</h2>
+    <label for="new-sport-name">Sport Name:</label>
+    <input type="text" id="new-sport-name" />
+    <label for="new-sport-content">Sport Content:</label>
+    <textarea id="new-sport-content"></textarea>
+    <label for="new-sport-image">Sport Image URL:</label>
+    <input type="text" id="new-sport-image" />
+    <button onclick="addSport()">Add Sport</button>
+</div>
+
+<script>
+    // Fetch and display existing sports
+    async function loadSports() {
+        const response = await fetch('/sports');
+        const sports = await response.json();
+        
+        const sportListDiv = document.getElementById('sport-list');
+        sportListDiv.innerHTML = ''; // Clear the list
+        
+        sports.forEach(sport => {
+            const sportItem = document.createElement('div');
+            sportItem.classList.add('sport-item');
+            sportItem.innerHTML = `
+                <span>${sport.name}</span>
+                <button onclick="editSport('${sport._id}', '${sport.name}', '${sport.content}', '${sport.imageUrl}')">Edit</button>
+            `;
+            sportListDiv.appendChild(sportItem);
+        });
+    }
+
+    // Edit a sport
+    function editSport(id, name, content, imageUrl) {
+        document.getElementById('edit-sport-id').value = id;
+        document.getElementById('edit-sport-name').value = name;
+        document.getElementById('edit-sport-content').value = content;
+        document.getElementById('edit-sport-image').value = imageUrl;
+        document.getElementById('edit-form').style.display = 'block';
+    }
+
+    // Save changes to the sport
+    async function saveSport() {
+        const id = document.getElementById('edit-sport-id').value;
+        const name = document.getElementById('edit-sport-name').value;
+        const content = document.getElementById('edit-sport-content').value;
+        const imageUrl = document.getElementById('edit-sport-image').value;
+
+        const response = await fetch('/edit-sport', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                sportId: id, 
+                updatedSportName: name, 
+                updatedDescription: content,
+                updatedImageUrl: imageUrl 
+            })
+        });
+        
+        const result = await response.json();
+        if (result.success) {
+            alert('Sport updated successfully!');
+            loadSports(); // Reload sports list
+            cancelEdit();
+        } else {
+            alert('Error updating sport');
+        }
+    }
+
+    // Cancel editing
+    function cancelEdit() {
+        document.getElementById('edit-form').style.display = 'none';
+    }
+
+    // Add a new sport
+    async function addSport() {
+        const name = document.getElementById('new-sport-name').value;
+        const content = document.getElementById('new-sport-content').value;
+        const imageUrl = document.getElementById('new-sport-image').value;
+
+        const response = await fetch('/create-sport', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                newSportName: name, 
+                newSportContent: content,
+                newSportImage: imageUrl
+            })
+        });
+
+        const result = await response.json();
+        if (result.success) {
+            alert('New sport added successfully!');
+            loadSports(); // Reload sports list
+        } else {
+            alert('Error adding new sport');
+        }
+    }
+
+    // Initial load
+    loadSports();
+</script>
+
+</body>
+</html>

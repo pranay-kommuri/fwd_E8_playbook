@@ -37,119 +37,69 @@
             <h1><span>Explore</span> <ion-icon name="arrow-forward"></ion-icon></h1>
             <input type="search" name="search" id="search" placeholder="Search sports...">
         </div>
-        <div id="sportsContainer">
-            <ul>
-                <li><a href="./explorepages/sport1.html"><img src="./assets/exploreimages/img1.jpg" alt="Kabaddi">
-                    <p>Kabaddi</p>
-                </a></li>
-                <li><a href="./explorepages/sport2.html"><img src="./assets/exploreimages/img2.jpg" alt="Kho Kho">
-                    <p>Kho Kho</p>
-                </a></li>
-                <li><a href="./explorepages/sport3.html"><img src="./assets/exploreimages/img3.jpg" alt="Mallakhamb">
-                    <p>Mallakhamb</p>
-                </a></li>
-                <li><a href="./explorepages/sport4.html"><img src="./assets/exploreimages/img4.jpg" alt="Pehlwani">
-                    <p>Pehlwani (Traditional Wrestling)</p>
-                </a></li>
-                <li><a href="./explorepages/sport5.html"><img src="./assets/exploreimages/img5.jpg" alt="Gilli Danda">
-                    <p>Gilli Danda</p>
-                </a></li>
-                <li><a href="./explorepages/sport6.html"><img src="./assets/exploreimages/img6.jpg" alt="Atya Patya">
-                    <p>Atya Patya</p>
-                </a></li>
-                <li><a href="./explorepages/sport7.html"><img src="./assets/exploreimages/img7.jpg" alt="Astapadham">
-                    <p>Astapadham</p>
-                </a></li>
-                <li><a href="./explorepages/sport8.html"><img src="./assets/exploreimages/img8.jpg" alt="Lagori">
-                    <p>Lagori (Seven Stones)</p>
-                </a></li>
-                <li><a href="./explorepages/sport9.html"><img src="./assets/exploreimages/img9.jpg" alt="Kalaripayattu">
-                    <p>Kalaripayattu (Martial Art)</p>
-                </a></li>
-                <li><a href="./explorepages/sport10.html"><img src="./assets/exploreimages/img10.jpg" alt="Thang-Ta">
-                    <p>Thang-Ta (Manipuri Martial Art)</p>
-                </a></li>
-                <li><a href="./explorepages/sport11.html"><img src="./assets/exploreimages/img11.jpg" alt="Silambam">
-                    <p>Silambam (Stick Fighting)</p>
-                </a></li>
-                <li><a href="./explorepages/sport12.html"><img src="./assets/exploreimages/img12.jpg" alt="Vallam Kali">
-                    <p>Vallam Kali (Boat Racing)</p>
-                </a></li>
-                <li><a href="./explorepages/sport13.html"><img src="./assets/exploreimages/img13.jpg" alt="Pachisi">
-                    <p>Pachisi (Precursor to Ludo)</p>
-                </a></li>
-                <li><a href="./explorepages/sport14.html"><img src="./assets/exploreimages/img14.jpg" alt="Chaupar">
-                    <p>Chaupar (Ancient Dice Game)</p>
-                </a></li>
-                <li><a href="./explorepages/sport15.html"><img src="./assets/exploreimages/img15.jpg" alt="Nondi">
-                    <p>Nondi (Hopscotch Variant)</p>
-                </a></li>
-                <li><a href="./explorepages/sport16.html"><img src="./assets/exploreimages/img16.jpg" alt="Kancha">
-                    <p>Kancha (Marbles Game)</p>
-                </a></li>
-                <li><a href="./explorepages/sport17.html"><img src="./assets/exploreimages/img17.jpg" alt="Chaturanga">
-                    <p>Chaturanga (Precursor to Chess)</p>
-                </a></li>
-                <li><a href="./explorepages/sport18.html"><img src="./assets/exploreimages/img18.jpg" alt="Jallikattu">
-                    <p>Jallikattu (Bull Taming Sport)</p>
-                </a></li>
-                <li><a href="./explorepages/sport19.html"><img src="./assets/exploreimages/img19.jpg" alt="Bullock Cart Racing">
-                    <p>Bullock Cart Racing</p>
-                </a></li>
-                <li><a href="./explorepages/sport20.html"><img src="./assets/exploreimages/img20.jpg" alt="Gatka">
-                    <p>Gatka (Sikh Martial Art)</p>
-                </a></li>
-                <li><a href="./explorepages/sport21.html"><img src="./assets/exploreimages/img21.jpg" alt="Vajra Mushti">
-                    <p>Vajra Mushti (Weapon-Based Wrestling)</p>
-                </a></li>
-                <li><a href="./explorepages/sport22.html"><img src="./assets/exploreimages/img22.jpg" alt="Alugulimane">
-                    <p>Alugulimane (Indian Mancala)</p>
-                </a></li>
-                <li><a href="./explorepages/sport23.html"><img src="./assets/exploreimages/img23.jpg" alt="Spinning Tops">
-                    <p>Spinning Tops (Lattu Game)</p>
-                </a></li>
-                <li><a href="./explorepages/sport24.html"><img src="./assets/exploreimages/img24.jpg" alt="Andhadhun">
-                    <p>Andhadhun</p>
-                </a></li>
-                
-            </ul>
-
-        </div>
+        <div id="sportsContainer"></div>
+        <p class="noResults">Sorry, could not find your prompt (╯▔皿▔)╯</p>
     </div>
+
     <footer>
         <p>Thank you for visiting playbook!</p>
     </footer>
+
     <script>
-        const search = document.getElementById('search');
-        const sportsContainer = document.getElementById('sportsContainer');
+        let sportsData = [];
 
-        const originalContent = sportsContainer.innerHTML; // Store the initial HTML for reset.
+// Fetch sports data from the backend
+fetch('/sports')
+  .then(response => response.json())
+  .then(data => {
+    console.log('Fetched sports data:', data); // Log the fetched data
+    sportsData = data; // Store data for later use
+    displaySports(sportsData); // Display the sports
+  })
+  .catch(error => {
+    console.error('Error fetching sports data:', error); // Log errors if fetching fails
+  });
 
-        search.addEventListener('input', () => {
-            const query = search.value.toLowerCase();
+// Function to display sports data
+function displaySports(data) {
+  const sportsContainer = document.getElementById('sportsContainer');
+  sportsContainer.innerHTML = ''; // Clear any previous content
 
-            // Get all list items
-            const sportsItems = sportsContainer.querySelectorAll('li');
+  if (data.length === 0) {
+    document.querySelector('.noResults').style.display = 'block'; // Show no results if data is empty
+  } else {
+    data.forEach(sport => {
+      const sportItem = document.createElement('li');
+      sportItem.innerHTML = `
+        <a href="/sportsinfo/${encodeURIComponent(sport.name)}">  <!-- Link updated to point to the dynamic route -->
+          <img src="${sport.image}" alt="${sport.name}" class="sport-image">  <!-- Use sport image and name -->
+          <p>${sport.name}</p>  <!-- Use sport name -->
+        </a>
+      `;
+      sportsContainer.appendChild(sportItem); // Append each sport to the container
+    });
+  }
+}
 
-            let hasResults = false;
+// Search functionality
+const search = document.getElementById('search');
+const sportsContainer = document.getElementById('sportsContainer');
+const noResults = document.querySelector('.noResults');
 
-            sportsItems.forEach(item => {
-                const text = item.querySelector('p').textContent.toLowerCase();
-                if (text.includes(query)) {
-                    item.style.display = ''; // Show matching items
-                    hasResults = true;
-                } else {
-                    item.style.display = 'none'; // Hide non-matching items
-                }
-            });
+search.addEventListener('input', () => {
+  const query = search.value.toLowerCase();
+  const filteredSports = sportsData.filter(sport => sport.name.toLowerCase().includes(query));
 
-            // Reset content if query is empty
-            if (!query) {
-                sportsContainer.innerHTML = originalContent;
-            }
-        });
+  if (filteredSports.length > 0) {
+    displaySports(filteredSports);
+    noResults.style.display = 'none';
+  } else {
+    noResults.style.display = 'block';
+    sportsContainer.innerHTML = '';
+  }
+});
+
     </script>
-    <script src="./js/app.js"></script>
 </body>
 
 </html>

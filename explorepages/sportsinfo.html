@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport Info | Playbook</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/app.js"></script>
+    <script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <header>
+        <img src="../assets/logowithtext.png" alt="logowithtext" class="logo">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../explore.html">Explore</a></li>
+            <li><a href="#">Quiz <ion-icon name="caret-down"></ion-icon></a>
+                <ul class="dropdown">
+                    <li><a href="../quizeasy.html">Easy</a></li>
+                    <li><a href="../quizmedium.html">Medium</a></li>
+                    <li><a href="../quizhard.html">Hard</a></li>
+                </ul>
+            </li>
+            <li><a href="https://github.com/pranay-kommuri/fwd_E8_playbook" target="_blank">project</a></li>
+            <li><a href="../about.html">About us</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="main2">
+        <div class="top">
+            <h1>Explore <ion-icon name="arrow-forward"></ion-icon> <span id="sport-name"></span> <ion-icon name="arrow-forward"></ion-icon></h1>
+        </div>
+        <div class="content">
+            <p id="sport-content"></p>
+            <div class="sportimage" id="sport-image"></div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Thank you for visiting Playbook!</p>
+    </footer>
+
+    <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const sportName = urlParams.get('sportname');  // Extract sportname from the query parameter
+
+    async function fetchSportData(sportName) {
+        if (!sportName) {
+            console.error("Sport name not provided in the URL.");
+            return;
+        }
+
+        try {
+            const response = await fetch(`/sportsinfo/${encodeURIComponent(sportName)}`);
+            if (!response.ok) {
+                throw new Error("Failed to fetch sport data");
+            }
+            const data = await response.json();
+
+            console.log('Fetched sport data:', data);  // Log the fetched data for debugging
+
+            // Ensure we're getting the sport object with the expected fields
+            if (data && data.sportname && data.content && data.imageUrl) {
+                // Update the content dynamically
+                document.getElementById('sport-name').textContent = data.sportname;
+                document.getElementById('sport-content').textContent = data.content;
+
+                // Update the image dynamically if provided
+                if (data.imageUrl) {
+                    const imageDiv = document.getElementById('sport-image');
+                    imageDiv.style.backgroundImage = `url('${data.imageUrl}')`;
+                }
+            } else {
+                console.error("Invalid data format received:", data);
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    fetchSportData(sportName);  // Fetch the data using the sportName
+    </script>
+</body>
+</html>
